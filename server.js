@@ -6,7 +6,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.get('/',function(req,res){
-  res.sendfile("index.html");
+  var options = {
+    root: "html"
+  }
+
+  res.sendFile("index.html", options);
 });
 
 app.post('/login',function(req,res){
