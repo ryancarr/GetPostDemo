@@ -9,9 +9,10 @@
           user=$("#user").val();
           pass=$("#password").val();
           $.post("http://localhost:3000/login",{user: user,password: pass}, function(data){
-            if(data==='done')
+            if(data != null)
               {
-                alert("login success");
+                let data0 = JSON.parse(data);
+                alert("User: " + data0.user + "\nPass: " + data0.password);
               }
           });
         });
